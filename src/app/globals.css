@@ -1,27 +1,116 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+  }
+  
+  /* THEME A: Wealth & Growth (Emerald & Gold) - DEFAULT LIGHT */
+  :root {
+    --background: 140 100% 98%; /* #F0FDF4 (Very light green tint) */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 163 88% 20%; /* Deep Emerald Green #065F46 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 35 92% 44%; /* Soft Gold #D97706 */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 163 88% 20%;
+    --radius: 0.5rem;
+  }
+
+  /* THEME B: Corporate Trust (Navy & Orange) - SWITCHABLE LIGHT */
+  .theme-blue {
+    --background: 210 40% 98%; /* #F8FAFC (Very light gray tint) */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 224 71% 20%; /* Navy Blue #1E3A8A */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 24 95% 53%; /* Vibrant Orange #F97316 */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 224 71% 20%;
+  }
+
+  /* DASHBOARD THEME: Fintech & Security (Indigo & Cyan) - FIXED DARK */
+  .dashboard-theme {
+    --background: 222 47% 11%; /* Dark Slate #0F172A */
+    --foreground: 210 40% 98%;
+    --card: 222 47% 7%; /* Darker cards #020617 */
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 244 55% 50%; /* Indigo #4338CA */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 189 94% 43%; /* Electric Cyan #06B6D4 */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 244 55% 50%;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Custom Scrollbar - Updated for Light Mode */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+  
+  .dashboard-theme::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+  .dashboard-theme::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+  .dashboard-theme::-webkit-scrollbar-thumb:hover {
+    @apply bg-indigo-500;
   }
 }
